@@ -16,6 +16,7 @@ function listener(details) {
   filter.onstop = event => {
     const jsonResponse = JSON.parse(response.join(''));
     jsonResponse.authors = [];
+    console.log('replacing authors with an empty list');
     filter.write(encoder.encode(JSON.stringify(jsonResponse)));
     filter.disconnect();
   }
@@ -28,6 +29,6 @@ browser.webRequest.onBeforeRequest.addListener(
   { urls: [
     "https://addons-dev.allizom.org/api/v3/addons/addon/*",
     "https://addons.allizom.org/api/v3/addons/addon/*",
-  ], types: ["main_frame"]},
+  ], types: ["main_frame", "xmlhttprequest"]},
   ["blocking"]
 );

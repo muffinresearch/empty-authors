@@ -2,7 +2,7 @@
   "description": "Altering addons-dev/stage authors API response to cause empty authors list",
   "manifest_version": 2,
   "name": "empty-authors",
-  "version": "1.1",
+  "version": "1.2",
   "homepage_url": "https://github.com/mdn/webextensions-examples/tree/master/http-response",
   "icons": {
     "48": "pen.svg"
@@ -11,8 +11,8 @@
   "permissions": [
     "webRequest",
     "webRequestBlocking",
-    "https://addons-dev.allizom.org/api/v3/addons/addon/*",
-    "https://addons.allizom.org/api/v3/addons/addon/*"
+    "https://addons-dev.allizom.org/*",
+    "https://addons.allizom.org/*"
   ],
 
   "background": {
