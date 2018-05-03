@@ -1,0 +1,24 @@
+{
+  "description": "Altering addons-dev authors API response",
+  "manifest_version": 2,
+  "name": "empty-authors",
+  "version": "1.0",
+  "homepage_url": "https://github.com/mdn/webextensions-examples/tree/master/http-response",
+  "icons": {
+    "48": "pen.svg"
+  },
+
+  "permissions": [
+    "webRequest", "webRequestBlocking", "https://addons-dev.allizom.org/api/v3/addons/addon/*"
+  ],
+
+  "background": {
+    "scripts": ["background.js"]
+  },
+
+  "applications": {
+    "gecko": {
+      "strict_min_version": "57.0a1"
+    }
+  }
+}
