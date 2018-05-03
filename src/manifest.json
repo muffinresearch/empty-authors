@@ -1,5 +1,5 @@
 {
-  "description": "Altering addons-dev authors API response",
+  "description": "Altering addons-dev/stage authors API response to cause empty authors list",
   "manifest_version": 2,
   "name": "empty-authors",
   "version": "1.0",
@@ -9,7 +9,10 @@
   },
 
   "permissions": [
-    "webRequest", "webRequestBlocking", "https://addons-dev.allizom.org/api/v3/addons/addon/*"
+    "webRequest",
+    "webRequestBlocking",
+    "https://addons-dev.allizom.org/api/v3/addons/addon/*",
+    "https://addons.allizom.org/api/v3/addons/addon/*"
   ],
 
   "background": {

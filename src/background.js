@@ -5,12 +5,9 @@ function listener(details) {
 
   filter.ondata = event => {
     let str = decoder.decode(event.data, {stream: false});
-    // Just change any instance of Example in the HTTP response
-    // to WebExtension Example.
-    //
-    console.log(str);
-    //
-    filter.write(encoder.encode(str));
+    const jsonResponse = JSON.parse(str);
+    jsonResponse.authors = [];
+    filter.write(encoder.encode(JSON.stringify(jsonResponse)));
     filter.disconnect();
   }
 
@@ -19,6 +16,9 @@ function listener(details) {
 
 browser.webRequest.onBeforeRequest.addListener(
   listener,
-  {urls: ["https://addons-dev.allizom.org/api/v3/addons/addon/*"], types: ["main_frame"]},
+  { urls: [
+    "https://addons-dev.allizom.org/api/v3/addons/addon/*",
+    "https://addons.allizom.org/api/v3/addons/addon/*"
+  ], types: ["main_frame"]},
   ["blocking"]
 );
